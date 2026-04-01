@@ -2,12 +2,12 @@ import SwiftUI
 
 struct HomeFeedView: View {
     @EnvironmentObject var postStore: PostStore
-    @State private var showingProfile = false
+    var onAvatarTap: (() -> Void)?
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                FeedHeaderView(avatarAction: { showingProfile = true })
+                FeedHeaderView(avatarAction: { onAvatarTap?() })
 
                 if postStore.feedPosts.isEmpty {
                     emptyFeed

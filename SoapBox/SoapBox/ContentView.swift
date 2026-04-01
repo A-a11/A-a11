@@ -8,33 +8,106 @@ struct ContentView: View {
     @EnvironmentObject var postStore: PostStore
     @State private var selectedTab: Tab = .home
     @State private var showRecordView = false
+    @State private var showSideMenu = false
+    @State private var showProfile = false
+    @State private var showSettings = false
+    @State private var menuDragOffset: CGFloat = 0
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-            // Tab content
-            Group {
-                switch selectedTab {
-                case .home:
-                    HomeFeedView()
-                case .search:
-                    SearchView()
-                case .record:
-                    Color.black // Placeholder, record is a sheet
-                case .collections:
-                    CollectionsView()
-                case .message:
-                    MessageView()
+        ZStack {
+            // Main content
+            ZStack(alignment: .bottom) {
+                // Tab content
+                Group {
+                    switch selectedTab {
+                    case .home:
+                        HomeFeedView(onAvatarTap: {
+                            withAnimation(.easeInOut(duration: 0.25)) {
+                                showSideMenu = true
+                            }
+                        })
+                    case .search:
+                        SearchView()
+                    case .record:
+                        Color.black
+                    case .collections:
+                        CollectionsView()
+                    case .message:
+                        MessageView()
+                    }
                 }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            // Custom tab bar
-            customTabBar
+                // Custom tab bar
+                customTabBar
+            }
+            .offset(x: showSideMenu ? UIScreen.main.bounds.width * 0.6 : 0)
+
+            // Side menu overlay
+            if showSideMenu {
+                ProfileSideMenuView(
+                    isOpen: $showSideMenu,
+                    user: .currentUser,
+                    onProfile: {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showSideMenu = false
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            showProfile = true
+                        }
+                    },
+                    onSettings: {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showSideMenu = false
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            showSettings = true
+                        }
+                    }
+                )
+                .transition(.move(edge: .leading))
+            }
         }
         .background(.black)
         .ignoresSafeArea(.keyboard)
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    if !showSideMenu && value.translation.width > 20 && value.startLocation.x < 40 {
+                        menuDragOffset = value.translation.width
+                    }
+                }
+                .onEnded { value in
+                    if !showSideMenu && value.translation.width > 100 && value.startLocation.x < 40 {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showSideMenu = true
+                        }
+                    }
+                    menuDragOffset = 0
+                }
+        )
         .fullScreenCover(isPresented: $showRecordView) {
             RecordView()
+        }
+        .fullScreenCover(isPresented: $showProfile) {
+            NavigationStack {
+                UserProfileView(user: .currentUser)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                showProfile = false
+                            } label: {
+                                Image(systemName: "arrow.left")
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                    }
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            NavigationStack {
+                EditProfileView(user: .currentUser)
+            }
         }
     }
 

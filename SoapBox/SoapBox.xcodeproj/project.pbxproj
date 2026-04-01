@@ -28,6 +28,10 @@
 		B1000019 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000019; };
 		B1000020 /* CommentMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000020; };
 		B1000021 /* CommentRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000021; };
+		B1000022 /* ProfileSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000022; };
+		B1000023 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000023; };
+		B1000024 /* NetworkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000024; };
+		B1000025 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000025; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		B2000019 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		B2000020 /* CommentMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentMatrixView.swift; sourceTree = "<group>"; };
 		B2000021 /* CommentRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRecorderView.swift; sourceTree = "<group>"; };
+		B2000022 /* ProfileSideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSideMenuView.swift; sourceTree = "<group>"; };
+		B2000023 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		B2000024 /* NetworkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListView.swift; sourceTree = "<group>"; };
+		B2000025 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B3000001 /* SoapBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +113,10 @@
 				B5000009 /* Tabs */,
 				B2000008 /* HomeFeedView.swift */,
 				B2000019 /* PostDetailView.swift */,
+				B2000022 /* ProfileSideMenuView.swift */,
+				B2000023 /* UserProfileView.swift */,
+				B2000024 /* NetworkListView.swift */,
+				B2000025 /* EditProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +259,10 @@
 				B1000019 /* PostDetailView.swift in Sources */,
 				B1000020 /* CommentMatrixView.swift in Sources */,
 				B1000021 /* CommentRecorderView.swift in Sources */,
+				B1000022 /* ProfileSideMenuView.swift in Sources */,
+				B1000023 /* UserProfileView.swift in Sources */,
+				B1000024 /* NetworkListView.swift in Sources */,
+				B1000025 /* EditProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
