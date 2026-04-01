@@ -5,6 +5,7 @@ struct PostCardView: View {
     let post: Post
 
     var body: some View {
+        NavigationLink(destination: PostDetailView(post: post)) {
         VStack(alignment: .leading, spacing: 0) {
             // Author info
             HStack(spacing: 8) {
@@ -113,6 +114,8 @@ struct PostCardView: View {
             .padding(.bottom, 8)
         }
         .background(.black)
+        }
+        .buttonStyle(.plain)
     }
 }
 

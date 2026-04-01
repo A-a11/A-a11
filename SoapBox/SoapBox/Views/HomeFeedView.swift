@@ -5,25 +5,28 @@ struct HomeFeedView: View {
     @State private var showingProfile = false
 
     var body: some View {
-        VStack(spacing: 0) {
-            FeedHeaderView(avatarAction: { showingProfile = true })
+        NavigationStack {
+            VStack(spacing: 0) {
+                FeedHeaderView(avatarAction: { showingProfile = true })
 
-            if postStore.feedPosts.isEmpty {
-                emptyFeed
-            } else {
-                ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(postStore.feedPosts) { post in
-                            PostCardView(post: post)
+                if postStore.feedPosts.isEmpty {
+                    emptyFeed
+                } else {
+                    ScrollView {
+                        LazyVStack(spacing: 0) {
+                            ForEach(postStore.feedPosts) { post in
+                                PostCardView(post: post)
 
-                            Divider()
-                                .background(Color.gray.opacity(0.3))
+                                Divider()
+                                    .background(Color.gray.opacity(0.3))
+                            }
                         }
                     }
                 }
             }
+            .background(.black)
+            .toolbarColorScheme(.dark, for: .navigationBar)
         }
-        .background(.black)
     }
 
     private var emptyFeed: some View {

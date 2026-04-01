@@ -25,6 +25,9 @@
 		B1000016 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000016; };
 		B1000017 /* FeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000017; };
 		B1000018 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000018; };
+		B1000019 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000019; };
+		B1000020 /* CommentMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000020; };
+		B1000021 /* CommentRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2000021; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		B2000016 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		B2000017 /* FeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderView.swift; sourceTree = "<group>"; };
 		B2000018 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		B2000019 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		B2000020 /* CommentMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentMatrixView.swift; sourceTree = "<group>"; };
+		B2000021 /* CommentRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRecorderView.swift; sourceTree = "<group>"; };
 		B3000001 /* SoapBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,7 @@
 				B5000005 /* Components */,
 				B5000009 /* Tabs */,
 				B2000008 /* HomeFeedView.swift */,
+				B2000019 /* PostDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +117,8 @@
 				B2000011 /* PostActionsBar.swift */,
 				B2000017 /* FeedHeaderView.swift */,
 				B2000018 /* VideoPlayerView.swift */,
+				B2000020 /* CommentMatrixView.swift */,
+				B2000021 /* CommentRecorderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -235,6 +244,9 @@
 				B1000016 /* CameraService.swift in Sources */,
 				B1000017 /* FeedHeaderView.swift in Sources */,
 				B1000018 /* VideoPlayerView.swift in Sources */,
+				B1000019 /* PostDetailView.swift in Sources */,
+				B1000020 /* CommentMatrixView.swift in Sources */,
+				B1000021 /* CommentRecorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
